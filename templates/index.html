@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <title>Translation</title>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header__wrapper">
+        <div class="header-logo">
+            <img src="../static/img/logo.png" alt="" class="header-logo__img">
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="main">
+    <div class="container">
+      <div class="main__wrapper">
+        <div class="main-head">
+          <h1 class="main-head__title">Translation title</h1>
+          <span class="main-head__subtitle">Translation desc</span>
+        </div>
+        <div class="main-content">
+          <div class="main-content__player"></div>
+          <div class="main-content__chat chat">
+            <div class="chat__messages">
+              <div class="chat__container" id="content">
+                {% for message in messages %}
+                <article class="media">
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        <strong>{{ message.username }}</strong>
+                        <br> {{ message.message }}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="chat__input">
+              <input id="chat_text" class="chat__text" type="text">
+              <input id="chat_btn" class="chat__send" type="submit" value="Send">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal is-active">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="modal-inputs">
+        <input id="username_input" class="modal-inputs__username" type="text" placeholder="Choose a username">
+        <input id="start_chat" class="modal-inputs__start" type="submit" value="Start">
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-info">
+
+    </div>
+    <div class="footer-social">
+
+    </div>
+  </footer>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+  <script src="../static/js/main.js"></script>
+</body>
+</html>
