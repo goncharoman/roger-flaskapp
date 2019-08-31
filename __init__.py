@@ -37,21 +37,17 @@ def message():
 
         username = request.form.get('username')
         message = request.form.get('message')
-        
+
         new_message = Message(username=username, message=message)
         db.session.add(new_message)
         db.session.commit()
-        
+
         pusher_client.trigger('chat-channel', 'new-message', {'username' : username, 'message': message})
         return jsonify({'result' : 'success'})
 
     except:
-    
-        return jsonify({'result' : 'failure'})
 
-@app.route('/client', methods=['POST'])
-def ret_client():
-    return (request.form.get('username'))
+        return jsonify({'result' : 'failure'})
 
 if __name__ == '__main__':
     app.run(debug=True)
