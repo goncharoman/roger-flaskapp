@@ -10,7 +10,8 @@ $(function() {
       $('#chat_text').val('');
     });
   });
-  // Pusher.logToConsole = true;
+      // Enable pusher logging - don't include this in production
+  Pusher.logToConsole = true;
   var pusher = new Pusher('6d0fa50e973e9e012e4b', {
     cluster: 'eu',
     encrypted: true
